@@ -40,13 +40,6 @@
 8. Verify your deployment and service are happy!
 9. Verify you can create a new game from the Hangman service (/api/v1/new_game)
 10. Fire off the Hangmam cli enjoy the fruits of your labor!!
-
-   ```shell
-   kubectl run -i --tty --rm hangmancli -n hm --generator=run-pod/v1 \
-   --image k8sland/go-hangman-cli:0.0.1 \
-   --command -- /app/hangman_cli --hm hangman:5000
-   ```
-
 11. Delete your entire application!
 
 
@@ -133,6 +126,14 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
   # OR...
   curl -XGET http://$(minikube ip):30500/api/v1/new_game
   ```
+
+- Play Hangman
+
+   ```shell
+   kubectl run -i --tty --rm hangmancli -n hm --generator=run-pod/v1 \
+   --image k8sland/go-hangman-cli:0.0.1 \
+   --command -- /app/hangman_cli --hm hangman:5000
+   ```
 
 - Delete the entire application
 
