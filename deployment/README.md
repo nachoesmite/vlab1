@@ -19,7 +19,7 @@ The hangman game is composed of two separate services namely: Dictionary and Han
 ## Dictionary Service
 
 1. Create a deployment and service
-   1. Use the following image and tag: *k8sland/go-dictionary-svc:0.0.1
+   1. Use the following image and tag: *k8sland/go-dictionary-svc:0.0.1*
    2. Configure the dictionary pod command as follows:
       1. Command: /app/dictionary
       2. Arguments
