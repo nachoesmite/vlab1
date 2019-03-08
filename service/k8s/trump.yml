@@ -1,0 +1,20 @@
+---
+# Pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: trump
+  namespace: dic
+  labels:
+    app: dictionary
+spec:
+  terminationGracePeriodSeconds: 0
+  containers:
+    - name: dictionary
+      image: k8sland/go-dictionary-svc:0.0.1
+      imagePullPolicy: IfNotPresent
+      command: ["/app/dictionary"]
+      args: ["-a", "assets", "-d", "trump.txt"]
+      ports:
+        - name: http
+          containerPort: 4000

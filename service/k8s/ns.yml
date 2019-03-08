@@ -1,0 +1,18 @@
+---
+# Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dic
+
+---
+# Quotas
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: dic
+  namespace: dic
+spec:
+  hard:
+    pods: 2
+    services: 1

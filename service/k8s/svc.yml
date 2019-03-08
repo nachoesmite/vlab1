@@ -1,0 +1,16 @@
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: dictionary
+  namespace: dic
+spec:
+  type: NodePort
+  selector:
+    app: dictionary
+  ports:
+    - name: http
+      port: 4001
+      targetPort: 4000
+      nodePort: 30400
