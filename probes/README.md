@@ -11,9 +11,6 @@
 > **Hangman** calls up to the dictionary to get a list of words and picks a random word.
 > It provides apis for creating a new game and validating your letter guesses.
 
-> NOTE! For this lab you can copy your deployment lab solution or use our solution as we will
-> enhancing the manifests.
-
 1. Create a namespace for the services called 'hm' for hangman.
 2. Dictionary Service: Create a deployment and service
    1. Use the following image and tag: *k8sland/go-dictionary-svc:0.0.1*
@@ -22,13 +19,13 @@
       2. Arguments
          1. `-a assets` specifies the dictionaries asset directory.
          2. `-d words.txt` specifies a dictionary to use.
-   5. Make sure your dictionary container exposes port *4000*
-   6. Configure the dictionary services as follows:
+   3. Make sure your dictionary container exposes port *4000*
+   4. Configure the dictionary services as follows:
       1. Service type: *ClusterIP*
       2. Service is exposed on port: *4000*
-   7. Configure probes and resource for your dictionary.
+   5. Configure probes and resource for your dictionary.
       1. You'll need to configure both a readiness and liveliness probes using `/api/v1/healthz`
-   8. Setup an HPA on your dictionary pod. Set the target to 30% cpu and max 5 replicas
+   6. Setup an HPA on your dictionary pod. Set the target to 30% cpu and max 5 replicas
 3. Provision your *Dictionary* deployment and service and HorizontalPodAutoscaler
 4. Verify your deployment, service and hpa are happy!
 5. Verify you can get a list of words from the dictionary service (/api/v1/words)
