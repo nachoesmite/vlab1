@@ -23,7 +23,7 @@
    4. Configure the dictionary services as follows:
       1. Service type: *ClusterIP*
       2. Service is exposed on port: *4000*
-3. Provision your **Dictionary" deployment and service
+3. Provision your *Dictionary* deployment and service
 4. Verify your deployment and service are happy!
 5. Verify you can get a list of words from the dictionary service (/api/v1/words)
 6. Hangman Service: Create a deployment and service
@@ -36,7 +36,7 @@
    4. Configure the hangman service as follows:
       1. Service type: *NodePort*
       2. Service is exposed on nodePort: *30500*
-7. Provision your **Hangman" deployment and service
+7. Provision your *Hangman* deployment and service
 8. Verify your deployment and service are happy!
 9. Verify you can create a new game from the Hangman service (/api/v1/new_game)
 10. Fire off the Hangmam cli enjoy the fruits of your labor!!
