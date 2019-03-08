@@ -4,7 +4,7 @@
 
 # <img src="../assets/lab.png" width="32" height="auto"/> Deployment Lab
 
-> Let's Play AHangman Game!
+> Let's Play A Hangman Game!
 >
 > The hangman game is composed of two separate services namely: **Dictionary** and **Hangman**.
 > **Dictionay** provides a list of words loaded from a dictionary asset directory.
@@ -17,8 +17,8 @@
    2. Configure the dictionary pod command as follows:
       1. Command: /app/dictionary
       2. Arguments
-         1. "-a assets" specifies the dictionaries asset directory.
-         2. "-d words.txt" specifies a dictionary to use.
+         1. `-a assets` specifies the dictionaries asset directory.
+         2. `-d words.txt` specifies a dictionary to use.
    3. Make sure your dictionary container exposes port *4000*
    4. Configure the dictionary services as follows:
       1. Service type: *ClusterIP*
