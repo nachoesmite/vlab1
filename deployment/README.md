@@ -12,9 +12,13 @@ The hangman game is composed of two separate services namely: Dictionary and Han
 + **Hangman** calls up to the dictionary to get a list of words and picks a random word.
   It provides apis for creating a new game and validating your letter guesses.
 
+---
+
 ## The HM namespace
 
 1. Create a namespace for the services called 'hm' for hangman.
+
+---
 
 ## Dictionary Service
 
@@ -33,6 +37,8 @@ The hangman game is composed of two separate services namely: Dictionary and Han
 1. Verify your deployment and service are happy!
 1. Verify you can get a list of words from the dictionary service (/api/v1/words)
 
+---
+
 ## Hangman Service
 
 1. Create a deployment and service
@@ -49,6 +55,8 @@ The hangman game is composed of two separate services namely: Dictionary and Han
 1. Verify your deployment and service are happy!
 1. Verify you can create a new game from the Hangman service (/api/v1/new_game)
 
+---
+
 ## Play The Game
 
 Fire off the Hangmam cli enjoy the fruits of your labor!!
@@ -58,6 +66,8 @@ kubectl run -i --tty --rm hangmancli -n hm --generator=run-pod/v1 \
 --image k8sland/go-hangman-cli:0.0.1 \
 --command -- /app/hangman_cli --hm hangman:5000
 ```
+
+---
 
 ## Cleanup!
 
