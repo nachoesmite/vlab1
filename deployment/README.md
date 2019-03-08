@@ -86,13 +86,13 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
   kubectl get ns
   ```
 
-- Create the Dictionary deployment and service
+- Create Dictionary deployment and service
 
   ```shell
   kubectl apply -f k8s/dictionary.yml
   ```
 
-- Verify the Dictionary service is happy
+- Verify Dictionary service is happy
 
   ```shell
   kubectl get -n hm deploy
@@ -101,7 +101,7 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
   watch kubectl get -n hm deploy,po,svc
   ```
 
-- Ensure the Dictionary Service is happy!
+- Verify we can get some words!
 
   ```shell
   export D_POD=$(kubectl get pods -n hm -l app=dictionary -o jsonpath={.items[0].metadata.name})
@@ -111,13 +111,13 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
   curl -XGET http://localhost:4001/api/v1/words
   ```
 
-- Create the Hangman deployment and service
+- Create Hangman deployment and service
 
   ```shell
   kubectl apply -f k8s/hangman.yml
   ```
 
-- Verify the Hangman service is happy
+- Verify Hangman service is happy
 
   ```shell
   kubectl get -n hm deploy
@@ -126,7 +126,7 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
   watch kubectl get -n hm deploy,po,svc
   ```
 
-- Ensure the Hangman Service is happy!
+- Ensure Hangman can create a game!
 
   ```shell
   http --print=b --pretty=colors $(minikube ip):30500/api/v1/new_game
@@ -134,7 +134,7 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
   curl -XGET http://$(minikube ip):30500/api/v1/new_game
   ```
 
-- Delete Hangman
+- Delete the entire application
 
   ```shell
   kubectl delete -f k8s
