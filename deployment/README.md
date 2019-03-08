@@ -11,10 +11,6 @@
 > **Hangman** calls up to the dictionary to get a list of words and picks a random word.
 > It provides apis for creating a new game and validating your letter guesses.
 
-<br/>
-
----
-
 1. Create a namespace for the services called 'hm' for hangman.
 2. Dictionary Service: Create a deployment and service
    1. Use the following image and tag: *k8sland/go-dictionary-svc:0.0.1*
@@ -43,7 +39,7 @@
 7. Provision your **Hangman" deployment and service
 8. Verify your deployment and service are happy!
 9. Verify you can create a new game from the Hangman service (/api/v1/new_game)
-1. Fire off the Hangmam cli enjoy the fruits of your labor!!
+10. Fire off the Hangmam cli enjoy the fruits of your labor!!
 
    ```shell
    kubectl run -i --tty --rm hangmancli -n hm --generator=run-pod/v1 \
@@ -51,7 +47,7 @@
    --command -- /app/hangman_cli --hm hangman:5000
    ```
 
-1. Delete your entire application!
+11. Delete your entire application!
 
 
 <br/>
