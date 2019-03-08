@@ -1,0 +1,16 @@
+---
+# Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: <!!CHANGE_ME!!>
+
+---
+# Quotas
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: <!!CHANGE_ME!!>
+  namespace: <!!CHANGE_ME!!>
+spec:
+  hard: <!!CHANGE_ME!!>

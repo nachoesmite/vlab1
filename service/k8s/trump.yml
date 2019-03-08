@@ -1,0 +1,19 @@
+---
+# Pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: <!!CHANGE_ME!!>
+  namespace: <!!CHANGE_ME!!>
+  labels: <!!CHANGE_ME!!>
+spec:
+  terminationGracePeriodSeconds: 0
+  containers:
+    - name: <!!CHANGE_ME!!>
+      image: <!!CHANGE_ME!!>
+      imagePullPolicy: <!!CHANGE_ME!!>
+      command: <!!CHANGE_ME!!>
+      args: <!!CHANGE_ME!!>
+      ports:
+        - name: <!!CHANGE_ME!!>
+          containerPort: <!!CHANGE_ME!!>

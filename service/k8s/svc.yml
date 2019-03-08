@@ -1,0 +1,16 @@
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: <!!CHANGE_ME!!>
+  namespace: <!!CHANGE_ME!!>
+spec:
+  type: <!!CHANGE_ME!!>
+  selector:
+    app: <!!CHANGE_ME!!>
+  ports:
+    - name: <!!CHANGE_ME!!>
+      port: <!!CHANGE_ME!!>
+      targetPort: <!!CHANGE_ME!!>
+      nodePort: <!!CHANGE_ME!!>
