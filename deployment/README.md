@@ -12,6 +12,9 @@ The hangman game is composed of two separate services namely: **Dictionary** and
 + **Hangman** calls up to the dictionary to get a list of words and picks a random word.
   It provides apis for creating a new game and validating your letter guesses.
 
+<br/>
+
+---
 
 1. Create a namespace for the services called 'hm' for hangman.
 2. Dictionary Service: Create a deployment and service
