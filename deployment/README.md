@@ -36,11 +36,11 @@ The hangman game is composed of two separate services namely: Dictionary and Han
 ## Hangman Service
 
 1. Create a deployment and service
-   1. Use the following image and tag: *k8sland/go-hangman-svc:0.0.1
+   1. Use the following image and tag: *k8sland/go-hangman-svc:0.0.1*
    1. Configure the hangman pod command as follows:
       1. Command: /app/hangman
       1. Arguments
-         1. "-d <dictionary dns name>:<port>" specifies the dictionaries dns name and port
+         1. `-d dnsname:port` specifies the dictionaries dns name and port
    1. Make sure your hangman container exposes port *5000*
    1. Configure the hangman service as follows:
       1. Service type: *NodePort*
