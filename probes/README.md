@@ -28,7 +28,7 @@
       2. Service is exposed on port: *4000*
    7. Configure probes and resource for your dictionary.
       1. You'll need to configure both a readiness and liveliness probes using `/api/v1/healthz`
-   8. Setup an HPA on your dictionary pod. Set the target to 30% cpu.
+   8. Setup an HPA on your dictionary pod. Set the target to 30% cpu and max 5 replicas
 3. Provision your *Dictionary* deployment and service and HorizontalPodAutoscaler
 4. Verify your deployment, service and hpa are happy!
 5. Verify you can get a list of words from the dictionary service (/api/v1/words)
@@ -44,7 +44,7 @@
       2. Service is exposed on nodePort: *30500*
    5. Configure probes and resource for your hangman service.
       1. You'll need to configure both a readiness and liveliness probes using `/api/v1/healthz`
-   6. Setup an HPA on your hangman pod. Set the target to 30% cpu
+   6. Setup an HPA on your hangman pod. Set the target to 30% cpu and max 5 replicas
 7. Provision your *Hangman* deployment and service
 8. Verify your deployment and service are happy!
 9.  Verify you can create a new game from the Hangman service (/api/v1/new_game)
