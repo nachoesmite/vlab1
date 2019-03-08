@@ -6,23 +6,15 @@
 
 > Provision Hangman services and play the game!
 
-The hangman game is composed of two separate services namely: Dictionary and Hangman.
+The hangman game is composed of two separate services namely: **Dictionary** and **Hangman**.
 
 + **Dictionay** provides a list of words loaded from a dictionary asset directory.
 + **Hangman** calls up to the dictionary to get a list of words and picks a random word.
   It provides apis for creating a new game and validating your letter guesses.
 
----
-
-## The HM namespace
 
 1. Create a namespace for the services called 'hm' for hangman.
-
----
-
-## Dictionary Service
-
-1. Create a deployment and service
+2. Dictionary Service: Create a deployment and service
    1. Use the following image and tag: *k8sland/go-dictionary-svc:0.0.1*
    2. Configure the dictionary pod command as follows:
       1. Command: /app/dictionary
@@ -33,43 +25,29 @@ The hangman game is composed of two separate services namely: Dictionary and Han
    4. Configure the dictionary services as follows:
       1. Service type: *ClusterIP*
       2. Service is exposed on port: *4000*
-1. Provision your **Dictionary" deployment and service
-1. Verify your deployment and service are happy!
-1. Verify you can get a list of words from the dictionary service (/api/v1/words)
-
----
-
-## Hangman Service
-
-1. Create a deployment and service
+3. Provision your **Dictionary" deployment and service
+4. Verify your deployment and service are happy!
+5. Verify you can get a list of words from the dictionary service (/api/v1/words)
+6. Hangman Service: Create a deployment and service
    1. Use the following image and tag: *k8sland/go-hangman-svc:0.0.1*
-   1. Configure the hangman pod command as follows:
+   2. Configure the hangman pod command as follows:
       1. Command: /app/hangman
-      1. Arguments
+      2. Arguments
          1. `-d dnsname:port` specifies the dictionaries dns name and port
-   1. Make sure your hangman container exposes port *5000*
-   1. Configure the hangman service as follows:
+   3. Make sure your hangman container exposes port *5000*
+   4. Configure the hangman service as follows:
       1. Service type: *NodePort*
-      1. Service is exposed on nodePort: *30500*
-1. Provision your **Hangman" deployment and service
-1. Verify your deployment and service are happy!
-1. Verify you can create a new game from the Hangman service (/api/v1/new_game)
+      2. Service is exposed on nodePort: *30500*
+7. Provision your **Hangman" deployment and service
+8. Verify your deployment and service are happy!
+9. Verify you can create a new game from the Hangman service (/api/v1/new_game)
+1. Fire off the Hangmam cli enjoy the fruits of your labor!!
 
----
-
-## Play The Game
-
-Fire off the Hangmam cli enjoy the fruits of your labor!!
-
-```shell
-kubectl run -i --tty --rm hangmancli -n hm --generator=run-pod/v1 \
---image k8sland/go-hangman-cli:0.0.1 \
---command -- /app/hangman_cli --hm hangman:5000
-```
-
----
-
-## Cleanup!
+   ```shell
+   kubectl run -i --tty --rm hangmancli -n hm --generator=run-pod/v1 \
+   --image k8sland/go-hangman-cli:0.0.1 \
+   --command -- /app/hangman_cli --hm hangman:5000
+   ```
 
 1. Delete your entire application!
 
