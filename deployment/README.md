@@ -5,12 +5,10 @@
 # <img src="../assets/lab.png" width="32" height="auto"/> Deployment Lab
 
 > Provision Hangman services and play the game!
-
-The hangman game is composed of two separate services namely: **Dictionary** and **Hangman**.
-
-+ **Dictionay** provides a list of words loaded from a dictionary asset directory.
-+ **Hangman** calls up to the dictionary to get a list of words and picks a random word.
-  It provides apis for creating a new game and validating your letter guesses.
+> The hangman game is composed of two separate services namely: **Dictionary** and **Hangman**.
+> **Dictionay** provides a list of words loaded from a dictionary asset directory.
+> **Hangman** calls up to the dictionary to get a list of words and picks a random word.
+> It provides apis for creating a new game and validating your letter guesses.
 
 <br/>
 
