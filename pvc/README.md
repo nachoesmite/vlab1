@@ -85,7 +85,7 @@
   ```shell
   kubectl delete -f k8s/pg.yml
   kubectl apply -f k8s/pg.yml
-  psql -U fred -h $(minikube ip) -p 30543 pvc_lab
+  psql -U YOUR_USER -h $(minikube ip) -p 30543 pvc_lab
   # Type \q to exit!
   ```
 
