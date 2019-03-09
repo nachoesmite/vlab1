@@ -30,21 +30,21 @@
 ## Install [Postgresql](http://braumeister.org/formula/postgresql)
 
 
-    1. HomeBrew Install
+1. HomeBrew Install
 
-        ```shell
-        brew install postgresql
-        ```
+  ```shell
+  brew install postgresql
+  ```
 
-    2. Or... Manual Install
+1. Or... Manual Install
 
-       [Postgres Installation](https://www.postgresql.org/docs/9.3/static/tutorial-install.html)
+  [Install Postgres](https://www.postgresql.org/docs/9.3/static/tutorial-install.html)
 
-    3. Verify!
+1. Verify!
 
-        ```shell
-        psql -V
-        ```
+  ```shell
+  psql -V
+  ```
 
 <br/>
 
