@@ -31,19 +31,17 @@
 
 1. HomeBrew Install
 
-  ```shell
-  brew install postgresql
-  ```
+   ```shell
+   brew install postgresql
+   ```
 
-1. Or... Manual Install
-
-  [Install Postgres](https://www.postgresql.org/docs/9.3/static/tutorial-install.html)
+1. Or... [Install Postgres](https://www.postgresql.org/docs/9.3/static/tutorial-install.html)
 
 1. Verify!
 
-  ```shell
-  psql -V
-  ```
+   ```shell
+   psql -V
+   ```
 
 <br/>
 
