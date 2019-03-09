@@ -29,22 +29,19 @@
 ---
 ## Install [Postgresql](http://braumeister.org/formula/postgresql)
 
-
 1. HomeBrew Install
 
-  ```shell
-  brew install postgresql
-  ```
+   ```shell
+   brew install postgresql
+   ```
 
-1. Or... Manual Install
-
-  [Install Postgres](https://www.postgresql.org/docs/9.3/static/tutorial-install.html)
+1. Or... [Install Postgres](https://www.postgresql.org/docs/9.3/static/tutorial-install.html)
 
 1. Verify!
 
-  ```shell
-  psql -V
-  ```
+   ```shell
+   psql -V
+   ```
 
 <br/>
 
@@ -70,7 +67,7 @@
   kubectl get po,pv,pvc,cm,secrets
   ```
 
--- Check volume and make sure it's bound!
+- Check volume and make sure it's bound!
 
   ```shell
   export POD_ID=`kubectl get po -l app=pg -o go-template='{{(index .items 0).metadata.name}}'`
@@ -88,7 +85,7 @@
   ```shell
   kubectl delete -f k8s/pg.yml
   kubectl apply -f k8s/pg.yml
-  psql -U fred -h $(minikube ip) -p 30543 pvc_lab
+  psql -U YOUR_USER -h $(minikube ip) -p 30543 pvc_lab
   # Type \q to exit!
   ```
 
