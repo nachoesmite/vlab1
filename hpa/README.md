@@ -11,42 +11,20 @@
 > **Hangman** calls up to the dictionary to get a list of words and picks a random word.
 > It provides apis for creating a new game and validating your letter guesses.
 
-1. Create a namespace for the services called 'hm' for hangman.
-2. Dictionary Service: Create a deployment and service
-   1. Use the following image and tag: *k8sland/go-dictionary-svc:0.0.1*
-   2. Configure the dictionary pod command as follows:
-      1. Command: /app/dictionary
-      2. Arguments
-         1. `-a assets` specifies the dictionaries asset directory.
-         2. `-d words.txt` specifies a dictionary to use.
-   3. Make sure your dictionary container exposes port *4000*
-   4. Configure the dictionary services as follows:
-      1. Service type: *ClusterIP*
-      2. Service is exposed on port: *4000*
-   5. Configure probes and resource for your dictionary.
-      1. You'll need to configure both a readiness and liveliness probes using `/api/v1/healthz`
-   6. Setup an HPA on your dictionary pod. Set the target to 30% cpu and max 5 replicas
-3. Provision your *Dictionary* deployment and service and HorizontalPodAutoscaler
+1. Configure probes and resources for your dictionary service.
+   1. You'll need to configure both a readiness and liveliness probes using `/api/v1/healthz`
+2. Setup an HPA on your dictionary pod. Set the target to 30% cpu and max 5 replicas
+3. Provision your *Dictionary* deployment, service and HPA
 4. Verify your deployment, service and hpa are happy!
 5. Verify you can get a list of words from the dictionary service (/api/v1/words)
-6. Hangman Service: Create a deployment and service
-   1. Use the following image and tag: *k8sland/go-hangman-svc:0.0.1*
-   2. Configure the hangman pod command as follows:
-      1. Command: /app/hangman
-      2. Arguments
-         1. `-d dnsname:port` specifies the dictionaries dns name and port
-   3. Make sure your hangman container exposes port *5000*
-   4. Configure the hangman service as follows:
-      1. Service type: *NodePort*
-      2. Service is exposed on nodePort: *30500*
-   5. Configure probes and resource for your hangman service.
-      1. You'll need to configure both a readiness and liveliness probes using `/api/v1/healthz`
-   6. Setup an HPA on your hangman pod. Set the target to 30% cpu and max 5 replicas
-7. Provision your *Hangman* deployment and service
-8. Verify your deployment and service are happy!
-9.  Verify you can create a new game from the Hangman service (/api/v1/new_game)
-10. Fire off the Hangmam cli enjoy the fruits of your labor!!
-11. Delete your entire application!
+6. Configure probes and resources for your hangman service.
+   1. You'll need to configure both a readiness and liveliness probes using `/api/v1/healthz`
+7. Setup an HPA on your hangman pod. Set the target to 30% cpu and max 10 replicas
+8. Provision your *Hangman* deployment and service
+9. Verify your deployment and service are happy!
+10. Verify you can create a new game from the Hangman service (/api/v1/new_game)
+11. Load up your hangman application and verify the probes, resources and autoscaler are working nominally
+12. Delete your entire application!
 
 
 <br/>
@@ -85,7 +63,7 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
   kubectl get ns
   ```
 
-- Create Dictionary deployment and service
+- Provision your Dictionary
 
   ```shell
   kubectl apply -f k8s/dictionary.yml
@@ -94,10 +72,7 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
 - Verify Dictionary service is happy
 
   ```shell
-  kubectl get -n hm deploy
-  kubectl get -n hm pod
-  # Or...
-  watch kubectl get -n hm deploy,po,svc
+  kubectl get -n hm svc,deploy,po,hpa
   ```
 
 - Verify we can get some words!
@@ -119,10 +94,7 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
 - Verify Hangman service is happy
 
   ```shell
-  kubectl get -n hm deploy
-  kubectl get -n hm pod
-  # Or...
-  watch kubectl get -n hm deploy,po,svc
+  kubectl get -n hm svc,deploy,po,hpa
   ```
 
 - Ensure Hangman can create a game!
@@ -133,17 +105,10 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
   curl -XGET http://$(minikube ip):30500/api/v1/new_game
   ```
 
-- Play Hangman
-
-   ```shell
-   kubectl run -i --tty --rm hangmancli -n hm --generator=run-pod/v1 \
-   --image k8sland/go-hangman-cli:0.0.1 \
-   --command -- /app/hangman_cli --hm hangman:5000
-   ```
-
 - Create some load
 
   ```shell
+  watch kubectl get -n hm hpa,po
   ab -n 100000 -c 2 http://$(minikube ip):30500/api/v1/new_game
   # Or...
   for i in {1..1000}; do wget -qO /dev/null http://$(minikube ip):30500/api/v1/new_game; done
