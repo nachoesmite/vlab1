@@ -1,0 +1,41 @@
+# Default values for dictionary.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  repository: k8sland/go-dictionary-svc
+  tag: 0.0.1
+  pullPolicy: IfNotPresent
+
+service:
+  portName: http
+  type: ClusterIP
+  port: 4000
+  targetPort: http
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 10Mi
+  limits:
+    cpu: 200m
+    memory: 20Mi
+
+probes:
+  liveness:
+    delay: 5
+    frequency: 10
+    failures: 5
+    successes: 1
+    timeout: 15
+  readiness:
+    delay: 15
+    frequency: 30
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
