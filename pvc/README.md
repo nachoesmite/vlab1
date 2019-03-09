@@ -38,7 +38,7 @@
 
 1. Or... Manual Install
 
-  [Postgres Installation](https://www.postgresql.org/docs/9.3/static/tutorial-install.html)
+  [Install Postgres](https://www.postgresql.org/docs/9.3/static/tutorial-install.html)
 
 1. Verify!
 
