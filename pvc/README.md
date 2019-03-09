@@ -6,24 +6,23 @@
 
 > Provision a Postgresql Database using secrets, persistentVolumes and persistentVolumeClaims.
 
-1. Define a secret for your postgres database using keys user and password.
-   1. Configure your secret to be used by environment variables `POSTGRES_USER` and `POSTGRES_PASSWORD`
-2. Provision your secret on your cluster
-3. Define a 5Gb PV using a hostPath based volume
-4. Define a PVC requiring RW access to a 2Gb DB partition
-5. Define a Postgres deployment requiring the PVC defined above
+1. Define a configmap for your postgres database using key `user`
+1. Define a secret for your postgres database using key `password`
+1. Configure your postgres environment variables `POSTGRES_USER` and `POSTGRES_PASSWORD` using the configmap and secret above
+1. Define a 5Gb PV using a hostPath based volume
+1. Define a PVC requiring RW access to a 2Gb DB partition
+1. Define a Postgres deployment requiring the PVC defined above
    1. Docker image: postgres:9.6.2-alpine
    2. Be sure to read the [postgres docs](https://hub.docker.com/_/postgres) for the expected env variables
    3. Data dir: /var/lib/postgresql/data
-6. Deploy your Postgres deployment
-7. Verify your volume and claim are correctly bound
-8. Ensure the volume is mounted correctly on your Postgres pod
-9.  Ensure you can access the database locally
-    1. psql -U user -W -h $(minikube ip) -p port
-10. Create a new database
-11. Recreate deployment
-12. Check if your new database is there??
-13. Delete your deployment
+1. Deploy your Postgres deployment
+1. Verify your volume and claim are correctly bound
+1. Ensure the volume is mounted correctly on your Postgres pod
+1. Ensure you can access your database locally on your machine!
+1. Create a new database
+1. Recreate deployment
+1. Check if your new database is there??
+1. Delete your deployment
 
 <br/>
 
@@ -59,7 +58,7 @@
   sudo mkdir /tmp/postgres-lab
   ```
 
-- Deploy postgres
+- Deploy Postgres
 
   ```shell
   kubectl apply -f k8s/pg.yml
@@ -68,10 +67,10 @@
 - Verify!
 
   ```shell
-  kubectl get po,pv,pvc
+  kubectl get po,pv,pvc,cm,secrets
   ```
 
--- Check volume
+-- Check volume and make sure it's bound!
 
   ```shell
   export POD_ID=`kubectl get po -l app=pg -o go-template='{{(index .items 0).metadata.name}}'`
