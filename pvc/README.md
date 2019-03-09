@@ -67,7 +67,7 @@
   kubectl get po,pv,pvc,cm,secrets
   ```
 
--- Check volume and make sure it's bound!
+- Check volume and make sure it's bound!
 
   ```shell
   export POD_ID=`kubectl get po -l app=pg -o go-template='{{(index .items 0).metadata.name}}'`
