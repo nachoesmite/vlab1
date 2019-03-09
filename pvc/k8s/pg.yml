@@ -1,4 +1,12 @@
 ---
+# ConfigMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pg
+data:
+  user: fred
+---
 # Secrets
 apiVersion: v1
 kind: Secret
@@ -6,7 +14,6 @@ metadata:
   name: pg
 type: Opaque
 data:
-  user: ZnJlZA== # fred
   password: RHVoIQ== # Duh!
 ---
 # PV
@@ -66,7 +73,7 @@ spec:
           env:
             - name: POSTGRES_USER
               valueFrom:
-                secretKeyRef:
+                configMapKeyRef:
                   name: pg
                   key: user
             - name: POSTGRES_PASSWORD
