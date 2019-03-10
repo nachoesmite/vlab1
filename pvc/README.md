@@ -27,6 +27,7 @@
 <br/>
 
 ---
+
 ## Install [Postgresql](http://braumeister.org/formula/postgresql)
 
 1. HomeBrew Install
@@ -46,6 +47,7 @@
 <br/>
 
 ---
+
 ## Commands
 
 - Provision storage

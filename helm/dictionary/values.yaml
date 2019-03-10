@@ -1,22 +1,26 @@
-# Default values for dictionary.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
+# ReplicaCount sets up the number of replicas.
 replicaCount: 1
+
+# NameOverride customizes the chart name.
 nameOverride: ""
+
+# FullnameOverride customizes the full chart name
 fullnameOverride: ""
 
+# Image customizes the image name and tags.
 image:
   repository: k8sland/go-dictionary-svc
   tag: 0.0.1
   pullPolicy: IfNotPresent
 
+# Service alters the service type and ports.
 service:
   portName: http
   type: ClusterIP
   port: 4000
   targetPort: http
 
+# Resources specifies resource constraints in terms of cpu and memory.
 resources:
   requests:
     cpu: 100m
@@ -25,6 +29,7 @@ resources:
     cpu: 200m
     memory: 20Mi
 
+# Probes specifies liveness and readiness probe attributes.
 probes:
   liveness:
     delay: 5
@@ -36,6 +41,11 @@ probes:
     delay: 15
     frequency: 30
 
+# NodeSelector binds this deployment to a node matching the labels.
 nodeSelector: {}
-tolerations: []
+
+# Affinity specifies how pods and nodes attracks or repells.
 affinity: {}
+
+# Toleration specifies on which nodes this pod will be allowed to run.
+tolerations: []
