@@ -28,12 +28,9 @@ spec:
               protocol: TCP
               containerPort: 4000
           resources:
-            {{- toYaml .Values.resources | trim | nindent 12 -}}
+            <!!CHANGE_ME!!>
           {{- with .Values.probes -}}
-            {{- $http := dict "port" "http" -}}
-            {{- $_ := set $http "livenessPath" "/api/v1/alive" -}}
-            {{- $_ := set $http "readinessPath" "/api/v1/ready" -}}
-            {{- dict "Values" . "Http" $http  | include "probes.http" | indent 8 -}}
+          <!! CHANGE_ME!!>
           {{- end -}}
       {{- with .Values.nodeSelector }}
       nodeSelector:
