@@ -19,12 +19,15 @@
       5. timeoutSecond(1)
    1. If some attributes are not specified in the chart values they must
       be defaulted as specified above
-5. Validate your chart and helper using a dry-run
-6. Install your chart and verify the deployment and probes are working
-7. Package your dictionary chart
-8. Using github pages deploy your chart into a git repo
-9. Exchange a classmate github page url and provision it as a chart repo
-10. Deploy your classmate chart into your cluster
+5. Use your custom helper in your chart deployment file to leverage your new helper
+6. Validate your chart and helper using a dry run install
+7. Install your unpackaged chart and verify the deployment and probes are working
+8. Package your dictionary chart
+9. Create a private github repo and checkin your new chart tarball and index file
+10. Expose your new github repo as a [github page](https://help.github.com/en/articles/configuring-a-publishing-source-for-github-pages)
+11. Deploy your dictionary chart from your custom repo
+12. Exchange a classmate github page url and provision it as a chart repo
+13. Deploy your classmate chart into your cluster!
 
 <br/>
 
