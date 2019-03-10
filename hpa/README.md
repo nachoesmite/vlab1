@@ -19,7 +19,7 @@
 5. Verify you can get a list of words from the dictionary service (/api/v1/words)
 6. Configure probes and resources for your hangman service.
    1. You'll need to configure both a readiness and liveliness probes using `/api/v1/healthz`
-7. Setup an HPA on your hangman pod. Set the target to 30% cpu and max 10 replicas
+7. Setup an HPA on your hangman pod. Set the target to 50% cpu and max 10 replicas
 8. Provision your *Hangman* deployment and service
 9. Verify your deployment and service are happy!
 10. Verify you can create a new game from the Hangman service (/api/v1/new_game)
