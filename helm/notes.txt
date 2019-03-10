@@ -1,0 +1,3 @@
+hm install -n hm ./dictionary -f cust.yml --namespace hm1
+
+hm install --dry-run --debug -n dic ./dictionary/
