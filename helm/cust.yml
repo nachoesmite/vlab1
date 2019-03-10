@@ -1,0 +1,20 @@
+replicaCount: 2
+
+service:
+  type: NodePort
+  nodePort: 30400
+
+resources:
+  requests:
+    cpu: 1
+    memory: 10Mi
+  limits:
+    cpu: 2
+    memory: 20Mi
+
+probes:
+  liveness:
+    delay: 1
+  readiness:
+    delay: 1
+    frequency: 30
