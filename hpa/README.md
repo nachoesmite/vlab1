@@ -2,7 +2,7 @@
 
 <br/>
 
-# <img src="../assets/lab.png" width="32" height="auto"/> Deployment Lab
+# <img src="../assets/lab.png" width="32" height="auto"/> HorizontalPodAutocaler Lab
 
 > The Hangman Game Reloaded!
 
