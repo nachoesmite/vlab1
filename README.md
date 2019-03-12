@@ -2,7 +2,7 @@
 
 <br/>
 
-# <img src="assets/lab.png" width="32" height="auto"/> Virtual Labs
+# <img src="../assets/lab.png" width="32" height="auto"/> Virtual Labs
 
 A collection of labs for the Kubernetes virtual class.
 
