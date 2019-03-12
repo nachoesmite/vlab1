@@ -12,13 +12,13 @@
 > It provides apis for creating a new game and validating your letter guesses.
 
 1. Configure probes and resources for your dictionary service.
-   1. You'll need to configure both a readiness and liveliness probes using `/api/v1/healthz`
+   1. You'll need to configure both a readiness and liveliness probes using `/api/v1/alive` and `/api/v1/ready`
 2. Setup an HPA on your dictionary pod. Set the target to 30% cpu and max 5 replicas
 3. Provision your *Dictionary* deployment, service and HPA
 4. Verify your deployment, service and hpa are happy!
 5. Verify you can get a list of words from the dictionary service (/api/v1/words)
 6. Configure probes and resources for your hangman service.
-   1. You'll need to configure both a readiness and liveliness probes using `/api/v1/healthz`
+   1. You'll need to configure both a readiness and liveliness probes using `/api/v1/alive` and `/api/v1/ready`
 7. Setup an HPA on your hangman pod. Set the target to 50% cpu and max 10 replicas
 8. Provision your *Hangman* deployment and service
 9. Verify your deployment and service are happy!
