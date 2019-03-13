@@ -23,7 +23,7 @@ metadata:
   name: pg
   labels:
     store: db
-    type: fast
+    type: spindle
 spec:
   storageClassName: standard
   persistentVolumeReclaimPolicy: Retain
@@ -50,7 +50,7 @@ spec:
     matchLabels:
       store: db
     matchExpressions:
-      - { key: type, operator: In, values: [fast] }
+      - { key: type, operator: In, values: [spindle, raid] }
 ---
 # Deployment
 apiVersion: apps/v1
@@ -109,5 +109,6 @@ spec:
     app: pg
   type: NodePort
   ports:
-    - port: 5432
+    - name: client
+      port: 5432
       nodePort: 30543
