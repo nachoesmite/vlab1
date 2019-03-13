@@ -72,7 +72,7 @@ We recommand for the lab to install a couple useful utilities if you're on OSX
 - Create *trump* dictionary pod and service
 
   ```shell
-  kubectl apply -f k8s/trump.yml
+  kubectl apply -f k8s/trump.yml -f k8s/svc.yml
   ```
 
 - Verify Dictionary service is happy
