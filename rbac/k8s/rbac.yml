@@ -16,6 +16,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: apiproxy
+    namespace: default
 roleRef:
   kind: ClusterRole
   name: apiproxy
