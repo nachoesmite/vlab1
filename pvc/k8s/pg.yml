@@ -21,7 +21,9 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: <!!CHANGE_ME!!>
-  labels: <!!CHANGE_ME!!>
+  labels:
+    store: db
+    type: spindle
 spec:
   storageClassName: <!!CHANGE_ME!!>
   persistentVolumeReclaimPolicy: <!!CHANGE_ME!!>
@@ -46,9 +48,9 @@ spec:
       storage: <!!CHANGE_ME!!>
   selector:
     matchLabels:
-      store: db
-    matchExpressions:
-      - { key: type, operator: In, values: [fast] }
+      store: <!!CHANGE_ME!!>
+    # NOTE: Use expression to select pv if type = spindle or raid
+    matchExpressions: <!!CHANGE_ME!!>
 ---
 # Deployment
 apiVersion: apps/v1
