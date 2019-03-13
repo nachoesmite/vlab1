@@ -17,7 +17,6 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: <!!CHANGE_ME!!>
-    namespace: <!!CHANGE_ME!!>
 roleRef:
   kind: <!!CHANGE_ME!!>
   name: <!!CHANGE_ME!!>
